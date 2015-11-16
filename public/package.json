@@ -4,11 +4,15 @@
   "description": "Frontend for Notely RiotJS",
   "main": "src/app.js",
   "scripts": {
+    "start": "node_modules/.bin/http-server -p 8081",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Jones",
   "license": "MIT",
   "dependencies": {
     "riot": "^2.3.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.8.5"
   }
 }
