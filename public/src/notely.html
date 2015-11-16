@@ -13,11 +13,11 @@
   </ul>
 
   <script>
-    this.stooges = [{ name: 'Larry' }, { name: 'Curly' }, { name: 'Moe' }]
+    this.stooges = opts.stooges
 
     addStooge(event) {
       var newName = this.newStooge.value
-      this.stooges.push({ name: newName });
+      this.stooges.push({ name: newName })
       this.newStooge.value = ''
     }
   </script>

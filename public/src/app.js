@@ -1,4 +1,10 @@
 (function () {
   'use strict';
-  riot.mount('notely')
+  riot.mount('notely', {
+    stooges: [
+      { name: 'Larry' },
+      { name: 'Curly' },
+      { name: 'Moe' }
+    ]
+  })
 }());
