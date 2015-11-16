@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/unixmonkey/notely_riotjs/issues"
   },
-  "homepage": "https://github.com/unixmonkey/notely_riotjs#readme"
+  "homepage": "https://github.com/unixmonkey/notely_riotjs#readme",
+  "dependencies": {
+    "riot": "^2.3.1"
+  }
 }
