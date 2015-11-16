@@ -1,1 +1,4 @@
-// app.js
+(function () {
+  'use strict';
+  riot.mount('notely')
+}());
