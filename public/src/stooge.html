@@ -1,0 +1,18 @@
+<stooge>
+  <label class={ completed: done }>
+    <input type="checkbox" checked={done} onclick={toggleDone}>
+    <yield/>
+  </label>
+
+  <style scoped>
+    label.completed {
+      text-decoration: line-through;
+    }
+  </style>
+
+  <script>
+    toggleDone(event) {
+      event.item.done = !event.item.done
+    }
+  </script>
+</stooge>

@@ -8,18 +8,9 @@
 
   <ul>
     <li each={ stooges }>
-      <label class={ completed: done }>
-        <input type="checkbox" checked={done} onclick={toggleDone}>
-        { name }
-      </label>
+      <stooge>{ name }</stooge>
     </li>
   </ul>
-
-  <style scoped>
-    label.completed {
-      text-decoration: line-through;
-    }
-  </style>
 
   <script>
     this.stooges = [{ name: 'Larry' }, { name: 'Curly' }, { name: 'Moe' }]
@@ -28,10 +19,6 @@
       var newName = this.newStooge.value
       this.stooges.push({ name: newName });
       this.newStooge.value = ''
-    }
-
-    toggleDone(event) {
-      event.item.done = !event.item.done
     }
   </script>
 </notely>
