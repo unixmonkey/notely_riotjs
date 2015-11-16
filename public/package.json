@@ -1,0 +1,14 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "Frontend for Notely RiotJS",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Jones",
+  "license": "MIT",
+  "dependencies": {
+    "riot": "^2.3.1"
+  }
+}
