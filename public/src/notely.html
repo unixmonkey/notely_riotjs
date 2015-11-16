@@ -1,3 +1,24 @@
 <notely>
   <div>Hello, world!</div>
+
+  <form onsubmit={ addStooge }>
+    <input type="text" name="newStooge">
+    <button type="submit">Add Stooge</button>
+  </form>
+
+  <ul>
+    <li each={ stooges }>
+      { name }
+    </li>
+  </ul>
+
+  <script>
+    this.stooges = [{ name: 'Larry' }, { name: 'Curly' }, { name: 'Moe' }]
+
+    addStooge(event) {
+      var newName = this.newStooge.value
+      this.stooges.push({ name: newName });
+      this.newStooge.value = ''
+    }
+  </script>
 </notely>
