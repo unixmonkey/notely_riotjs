@@ -27,10 +27,9 @@
     this.user = { name: undefined, username: undefined }
 
     login(event) {
-      var form = event.target
-      var credentials = { username: form.username.value, password: form.password.value }
+      var credentials = { username: this.username.value, password: this.password.value }
       console.log('logging in with credentials: ', credentials)
-      form.password.value = ''
+      this.password.value = ''
     }
   </script>
 </sign-in>

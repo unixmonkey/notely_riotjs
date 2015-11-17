@@ -32,10 +32,9 @@
     this.user = { name: undefined, username: undefined }
 
     submit(event) {
-      var form = event.target
-      var newUser = { name: form.name.value, username: form.username.value, password: form.password.value }
+      var newUser = { name: this.name.value, username: this.username.value, password: this.password.value }
       console.log('submitted data', newUser)
-      form.password.value = ''
+      this.password.value = ''
     }
   </script>
 </sign-up>
