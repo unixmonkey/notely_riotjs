@@ -13,6 +13,16 @@
   </nav>
 
   <script>
-    this.notes = [{_id: 1, title: 'foo'}, {_id: 2, title: 'bar'}]
+    var self = this
+    self.notes = []
+    $.ajax({
+      url: CONSTANTS.API_BASE + 'notes',
+      method: 'GET',
+      headers: { 'Authorization': JSON.parse(localStorage.getItem('authToken')) }
+    })
+    .done(function(notes) {
+      self.notes = notes
+      self.update() // force riot re-render
+    })
   </script>
 </notely-sidebar>

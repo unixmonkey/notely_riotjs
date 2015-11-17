@@ -33,7 +33,8 @@
           password: this.password.value
         }
       }
-      $.ajax(CONSTANTS.API_BASE + 'sessions', {
+      $.ajax({
+        url: CONSTANTS.API_BASE + 'sessions',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(credentials)
