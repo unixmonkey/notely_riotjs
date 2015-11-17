@@ -1,0 +1,41 @@
+<sign-up>
+  <notely-header></notely-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-4">
+        <h3>Sign up for Notely</h3>
+        <form id="new_user" onsubmit={ submit }>
+          <p>
+            <label for="name">Full Name</label><br>
+            <input type="text" name="name" autofocus="autofocus" required
+             value={ user.name }>
+          </p>
+          <p>
+            <label for="username">Username</label><br>
+            <input type="text" name="username" required value={ user.username }>
+          </p>
+          <p>
+            <label for="password">Password</label><br>
+            <input type="password" name="password" required>
+          </p>
+          <input type="submit" name="commit" value="Sign Up" class="btn btn-default">
+          <span class="login">
+            Already have an account?
+            <a href="/#/sign-in">Log in.</a>
+          </span>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    this.user = { name: undefined, username: undefined }
+
+    submit(event) {
+      var form = event.target
+      var newUser = { name: form.name.value, username: form.username.value, password: form.password.value }
+      console.log('submitted data', newUser)
+      form.password.value = ''
+    }
+  </script>
+</sign-up>

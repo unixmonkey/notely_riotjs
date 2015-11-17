@@ -12,6 +12,10 @@
       mount('notes')
     },
 
+    'sign-up': function() {
+      mount('sign-up')
+    },
+
     'sign-in': function(id, action) {
       mount('sign-in')
     },

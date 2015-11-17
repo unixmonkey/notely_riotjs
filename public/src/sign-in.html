@@ -1,16 +1,17 @@
 <sign-in>
+  <notely-header></notely-header>
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-xs-offset-4">
         <h3>Sign In</h3>
-        <form id="new_user" ng-submit="ctrl.login()">
+        <form id="new_user" onsubmit={ login }>
           <p>
             <label for="username">Username</label><br>
-            <input type="text" name="username" autofocus="autofocus" ng-model="ctrl.user.username" required>
+            <input type="text" name="username" autofocus="autofocus" value={ user.username } required>
           </p>
           <p>
             <label for="password">Password</label><br>
-            <input type="password" name="password" ng-model="ctrl.user.password" required>
+            <input type="password" name="password" required>
           </p>
           <input type="submit" name="commit" value="Sign In" class="btn btn-default">
           <span class="login">
@@ -21,4 +22,15 @@
       </div>
     </div>
   </div>
+
+  <script>
+    this.user = { name: undefined, username: undefined }
+
+    login(event) {
+      var form = event.target
+      var credentials = { username: form.username.value, password: form.password.value }
+      console.log('logging in with credentials: ', credentials)
+      form.password.value = ''
+    }
+  </script>
 </sign-in>
