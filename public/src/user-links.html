@@ -1,0 +1,23 @@
+<user-links>
+  <div class="user-links">
+    <div class={ signedInClass() }>
+      Signed in as { user.name }
+      |
+      <a href="#logout" onclick={ logout }>Logout</a>
+    </div>
+  </div>
+
+  <script>
+    this.user = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : {}
+
+    signedInClass() {
+      return this.user._id ? '' : 'hidden'
+    }
+
+    logout(event) {
+      localStorage.removeItem('currentUser')
+      localStorage.removeItem('authToken')
+      riot.route('sign-in')
+    }
+  </script>
+</user-links>
