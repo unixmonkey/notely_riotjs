@@ -1,24 +1,4 @@
 <notely>
-  <div>Hello, world!</div>
+  <notely-header></notely-header>
 
-  <form onsubmit={ addStooge }>
-    <input type="text" name="newStooge">
-    <button type="submit">Add Stooge</button>
-  </form>
-
-  <ul>
-    <li each={ stooge in stooges }>
-      <stooge>{ stooge.name }</stooge>
-    </li>
-  </ul>
-
-  <script>
-    this.stooges = opts.stooges
-
-    addStooge(event) {
-      var newName = this.newStooge.value
-      this.stooges.push({ name: newName })
-      this.newStooge.value = ''
-    }
-  </script>
 </notely>

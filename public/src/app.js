@@ -4,23 +4,31 @@
   var currentTag = null
 
   var routes = {
-    default: function(id, action) {
-      mount('notely', {
+    default: function() {
+      mount('notely')
+    },
+
+    notes: function() {
+      mount('notes')
+    },
+
+    'sign-in': function(id, action) {
+      mount('sign-in')
+    },
+
+    stooges: function() {
+      mount('stooges', {
         stooges: [
           { name: 'Jim' },
           { name: 'Varney' }
         ]
       })
-    },
-
-    'sign-in': function(id, action) {
-      mount('sign-in');
     }
   }
 
   function mount(tag, options) {
     currentTag && currentTag.unmount(true)
-    currentTag = riot.mount('notely', tag, options)[0]
+    currentTag = riot.mount('app', tag, options)[0]
   }
 
   var routeHandler = function(collection, id, action) {

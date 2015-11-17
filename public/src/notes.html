@@ -1,0 +1,30 @@
+<notes>
+  <notely-header></notely-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <nav id="sidebar">
+          <button class="new-note btn btn-default">
+            New Note
+          </button>
+          <ul id="notes">
+            <li each={ note in notes }>
+              <a class="note" href="#">
+                { note.title }
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-xs-8">
+        <main>
+          <!-- put outlet here -->
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    this.notes = [{title: 'foo'}, {title: 'bar'}]
+  </script>
+</notes>
