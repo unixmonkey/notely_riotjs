@@ -30,8 +30,8 @@
       Actions.authenticateUser(this.username.value, this.password.value)
       .done(function(response){
         if (response.user) {
-          localStorage.setItem('currentUser', JSON.stringify(response.user))
-          localStorage.setItem('authToken', JSON.stringify(response.auth_token))
+          CurrentUser.set(response.user)
+          AuthToken.set(response.auth_token)
           riot.route('notes')
         } else {
           // flash message

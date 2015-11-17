@@ -8,15 +8,17 @@
   </div>
 
   <script>
-    this.user = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : {}
+    var self = this
+    this.user = CurrentUser.get() || {}
 
     signedInClass() {
-      return this.user._id ? '' : 'hidden'
+      return CurrentUser.isSignedIn() ? '' : 'hidden'
     }
 
     logout(event) {
-      localStorage.removeItem('currentUser')
-      localStorage.removeItem('authToken')
+      CurrentUser.clear()
+      AuthToken.clear()
+      self.update()
       riot.route('sign-in')
     }
   </script>

@@ -7,7 +7,7 @@
       return $.ajax({
         url: CONSTANTS.API_BASE + 'notes',
         method: 'GET',
-        headers: { 'Authorization': JSON.parse(localStorage.getItem('authToken')) }
+        headers: { 'Authorization': AuthToken.get() }
       })
     },
 
