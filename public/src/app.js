@@ -8,8 +8,8 @@
       mount('notely')
     },
 
-    notes: function() {
-      mount('notes')
+    notes: function(id) {
+      mount('notes', { id: id })
     },
 
     'sign-up': function() {

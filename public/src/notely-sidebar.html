@@ -1,6 +1,6 @@
 <notely-sidebar>
   <nav id="sidebar">
-    <button class="new-note btn btn-default">
+    <button class="new-note btn btn-default" onclick={ newNote }>
       New Note
     </button>
     <ul id="notes">
@@ -24,5 +24,9 @@
       self.notes = notes
       self.update() // force riot re-render
     })
+
+    newNote() {
+      riot.route('notes')
+    }
   </script>
 </notely-sidebar>
