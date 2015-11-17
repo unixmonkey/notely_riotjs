@@ -27,18 +27,7 @@
     this.user = { name: undefined, username: undefined }
 
     login(event) {
-      var credentials = {
-        user: {
-          username: this.username.value,
-          password: this.password.value
-        }
-      }
-      $.ajax({
-        url: CONSTANTS.API_BASE + 'sessions',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(credentials)
-      })
+      Actions.authenticateUser(this.username.value, this.password.value)
       .done(function(response){
         if (response.user) {
           localStorage.setItem('currentUser', JSON.stringify(response.user))

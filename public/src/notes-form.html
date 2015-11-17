@@ -29,18 +29,12 @@
 
   <script>
     var self = this
-    // this.note = { _id: 22, title: 'Really cool note', body_html: '<p>Foo</p>', body_text: 'Foo' }
     this.note = {}
     this.note.isSaved = !!this.note._id
 
     if (opts.id) {
       // TODO: instead of ajax, get from collection
-      $.ajax({
-        url: CONSTANTS.API_BASE + 'notes',
-        method: 'GET',
-        headers: { 'Authorization': JSON.parse(localStorage.getItem('authToken')) }
-      })
-      .done(function(notes) {
+      Actions.fetchNotes().done(function(notes) {
         for (var i = 0; i < notes.length; i++) {
           if (notes[i]._id === opts.id) {
             self.note = notes[i]

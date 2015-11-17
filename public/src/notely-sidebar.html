@@ -15,12 +15,7 @@
   <script>
     var self = this
     self.notes = []
-    $.ajax({
-      url: CONSTANTS.API_BASE + 'notes',
-      method: 'GET',
-      headers: { 'Authorization': JSON.parse(localStorage.getItem('authToken')) }
-    })
-    .done(function(notes) {
+    Actions.fetchNotes().done(function(notes) {
       self.notes = notes
       self.update() // force riot re-render
     })
