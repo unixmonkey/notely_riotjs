@@ -27,9 +27,27 @@
     this.user = { name: undefined, username: undefined }
 
     login(event) {
-      var credentials = { username: this.username.value, password: this.password.value }
-      console.log('logging in with credentials: ', credentials)
-      this.password.value = ''
+      var credentials = {
+        user: {
+          username: this.username.value,
+          password: this.password.value
+        }
+      }
+      $.ajax(CONSTANTS.API_BASE + 'sessions', {
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(credentials)
+      })
+      .done(function(response){
+        if (response.user) {
+          localStorage.setItem('currentUser', JSON.stringify(response.user))
+          localStorage.setItem('authToken', JSON.stringify(response.auth_token))
+          riot.route('notes')
+        } else {
+          // flash message
+          event.target.password.value = ''
+        }
+      })
     }
   </script>
 </sign-in>
