@@ -32,9 +32,30 @@
     this.user = { name: undefined, username: undefined }
 
     submit(event) {
-      var newUser = { name: this.name.value, username: this.username.value, password: this.password.value }
-      console.log('submitted data', newUser)
-      this.password.value = ''
+      var self = this
+      var newUserData = {
+        user: {
+          name: this.name.value,
+          username: this.username.value,
+          password: this.password.value
+        }
+      }
+      $.ajax({
+        url: CONSTANTS.API_BASE + 'users',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(newUserData)
+      })
+      .done(function(response) {
+        if (response.user) {
+          localStorage.setItem('currentUser', JSON.stringify(response.user))
+          localStorage.setItem('authToken', JSON.stringify(response.auth_token))
+          riot.route('notes')
+        } else {
+          // flash message
+          self.password.value = ''
+        }
+      })
     }
   </script>
 </sign-up>
