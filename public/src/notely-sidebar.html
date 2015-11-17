@@ -1,0 +1,18 @@
+<notely-sidebar>
+  <nav id="sidebar">
+    <button class="new-note btn btn-default">
+      New Note
+    </button>
+    <ul id="notes">
+      <li each={ note in notes }>
+        <a class="note" href="/#/notes/{note._id}">
+          { note.title }
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    this.notes = [{_id: 1, title: 'foo'}, {_id: 2, title: 'bar'}]
+  </script>
+</notely-sidebar>
