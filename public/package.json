@@ -10,6 +10,7 @@
   "author": "David Jones",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^3.3.5",
     "riot": "^2.3.1"
   },
   "devDependencies": {
