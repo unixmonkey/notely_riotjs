@@ -1,0 +1,50 @@
+<notes-form>
+  <form onsubmit={ save }>
+    <p>
+      <input
+        type="text"
+        name="title"
+        id="note_title"
+        placeholder="Title your note"
+        value={ note.title }>
+    </p>
+    <p>
+      <textarea
+        name="body_html"
+        placeholder="Just start typing...">{ note.body_html }</textarea>
+    </p>
+    <div class="form-actions">
+      <input type="submit" name="commit" value="{ buttonText() }" class="btn btn-default">
+      <a onclick={ delete } class="btn { deleteButtonClass() }">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </div>
+  </form>
+
+  <style scoped>
+    .hidden {
+      display: none;
+    }
+  </style>
+
+  <script>
+    this.note = { _id: 22, title: 'Really cool note', body_html: '<p>Foo</p>', body_text: 'Foo' }
+    this.note.isSaved = !!this.note._id
+
+    buttonText() {
+      return this.note.isSaved ? 'Save Changes' : 'Save'
+    }
+
+    deleteButtonClass() {
+      return this.note.isSaved ? '' : 'hidden'
+    }
+
+    save(event) {
+      console.log('saving!')
+    }
+
+    delete(event) {
+      console.log('deleting')
+    }
+  </script>
+</notes-form>
